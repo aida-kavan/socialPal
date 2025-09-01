@@ -5,12 +5,11 @@ import { SignInButton, UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 
 async function DesktopNavbar() {
-    console.log(currentUser)
+  console.log(currentUser);
   const user = await currentUser();
 
   return (
     <div className="hidden md:flex items-center space-x-4">
-
       <Button variant="ghost" className="flex items-center gap-2" asChild>
         <Link href="/">
           <HomeIcon className="w-4 h-4" />
@@ -29,7 +28,8 @@ async function DesktopNavbar() {
           <Button variant="ghost" className="flex items-center gap-2" asChild>
             <Link
               href={`/profile/${
-                user.username ?? user.emailAddresses[0].emailAddress.split("@")[0]
+                user.username ??
+                user.emailAddresses[0].emailAddress.split("@")[0]
               }`}
             >
               <UserIcon className="w-4 h-4" />
@@ -40,7 +40,7 @@ async function DesktopNavbar() {
         </>
       ) : (
         <SignInButton mode="modal">
-          <Button >ورود</Button>
+          <Button><span>ورود</span></Button>
         </SignInButton>
       )}
     </div>

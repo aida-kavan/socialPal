@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
-
+import Sidebar from "../components/Sidebar"
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/ui/Navbar";
+import { Toast } from "@heroui/react";
+import {Toaster} from "react-hot-toast"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,12 +28,15 @@ export default function RootLayout({
               {/* container to center the content */}
               <div className="max-w-7xl mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                  <div className="hidden lg:block lg:col-span-3">sidebar</div>
+                  <div className="hidden lg:block lg:col-span-3">
+                    <Sidebar/>
+                  </div>
                   <div className="lg:col-span-9">{children}</div>
                 </div>
               </div>
             </main>
           </div>
+          <Toaster/>
         </body>
       </html>
     </ClerkProvider>

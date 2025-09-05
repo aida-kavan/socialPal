@@ -132,6 +132,6 @@ body{
   direction: rtl;
 }
 
-.ltr{
-  direction: ltr;
+.rtl{
+  direction: rtl;
 }

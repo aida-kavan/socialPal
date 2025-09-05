@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Textarea } from "./ui/Textarea";
 import { DeleteAlertDialog } from "./DeleteAlertDialog";
+import Image from "next/image";
 
 type Posts = Awaited<ReturnType<typeof getPosts>>;
 type Post = NonNullable<Posts>[number];
@@ -48,7 +49,7 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
       setHasLiked((prev) => !prev);
       setOptmisticLikes((prev) => prev + (hasLiked ? -1 : 1));
       await toggleLike(post.id);
-    } catch (error) {
+    } catch  {
       setOptmisticLikes(post._count.likes);
       setHasLiked(post.likes.some((like) => like.userId === dbUserId));
     } finally {
@@ -65,7 +66,7 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
         toast.success("کامنت با موفقیت منتشر شد :)");
         setNewComment("");
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to add comment");
     } finally {
       setIsCommenting(false);
@@ -79,7 +80,7 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
       const result = await deletePost(post.id);
       if (result?.success) toast.success("پست پاک شد :)");
       else throw new Error(result?.error);
-    } catch (error) {
+    } catch  {
       toast.error("در حذف این پست اشکالی پیش آمده است!");
     } finally {
       setIsDeleting(false);
@@ -137,7 +138,7 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
 
           {post.image && (
             <div className="rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={post.image}
                 alt="Post content"
                 className="w-full h-auto object-cover"

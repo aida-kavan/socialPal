@@ -26,7 +26,7 @@ const FollowButton = ({ userId }: FollowButtonProps) => {
         },
       });
       setLoading(false)
-    } catch (error) {
+    } catch  {
         toast.error("خطایی در فالو کردن این کاربر پیش آمده است. دوباره تلاش کنید!")
     } finally {
     }

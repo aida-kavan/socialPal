@@ -12,8 +12,10 @@ interface FollowButtonProps {
 
 const FollowButton = ({ userId }: FollowButtonProps) => {
   const [loading, setLoading] = useState(false);
+  
   const handleFollow = async () => {
     setLoading(true);
+
     try {
       await togglefollow(userId);
       toast.success("فالو شد!", {

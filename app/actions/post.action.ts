@@ -3,8 +3,6 @@
 import prisma from "@/lib/prisma";
 import { getDbUserId } from "./user.action";
 import { revalidatePath } from "next/cache";
-import { error } from "console";
-import { read } from "fs";
 
 export async function createPost(content: string, imageUrl: string) {
   try {

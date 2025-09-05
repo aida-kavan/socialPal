@@ -2,7 +2,7 @@ import CreatePost from "@/components/CreatePost";
 import PostCard from "@/components/PostCard";
 import { Button } from "@/components/ui/button";
 import WhoToFollow from "@/components/WhoToFollow";
-import prisma from "@/lib/prisma";
+
 import { currentUser } from "@clerk/nextjs/server";
 import { getPosts } from "./actions/post.action";
 import { getDbUserId } from "./actions/user.action";

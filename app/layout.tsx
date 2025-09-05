@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Sidebar from "../components/Sidebar"
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/ui/Navbar";
-import { Toast } from "@heroui/react";
 import {Toaster} from "react-hot-toast"
 
 export const metadata: Metadata = {

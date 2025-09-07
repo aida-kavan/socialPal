@@ -6,7 +6,6 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { formatDistanceToNow } from "date-fns-jalali";
-import { faIR } from "date-fns-jalali/locale";
 import { HeartIcon, MessageCircleIcon, UserPlusIcon } from "lucide-react";
 
 import { useEffect, useState } from "react";
@@ -41,7 +40,7 @@ function NotificationsPage() {
 
         const unreadIds = data.filter((n) => !n.read).map((n) => n.id);
         if (unreadIds.length > 0) await markNotificationsAsRead(unreadIds);
-      } catch (error) {
+      } catch () {
         toast.error("Failed to fetch notifications");
       } finally {
         setIsLoading(false);

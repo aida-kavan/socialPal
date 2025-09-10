@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar"
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/ui/Navbar";
 import {Toaster} from "react-hot-toast"
+import { AuroraBackground } from "@/components/ui/bg";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,21 +20,24 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="fa" suppressHydrationWarning>
         <body>
-          <div className="min-h-screen">
+          <AuroraBackground>
+
+          <div className="h-screen">
             <Navbar />
 
             <main className="py-8">
               {/* container to center the content */}
               <div className="max-w-7xl mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                  <div className="hidden lg:block lg:col-span-3">
+                  <div className="hidden z-[1000] lg:block lg:col-span-3">
                     <Sidebar/>
                   </div>
-                  <div className="lg:col-span-9">{children}</div>
+                  <div className="lg:col-span-9 z-10">{children}</div>
                 </div>
               </div>
             </main>
           </div>
+          </AuroraBackground>
           <Toaster/>
         </body>
       </html>

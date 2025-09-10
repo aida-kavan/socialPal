@@ -103,7 +103,7 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
 
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between">
-                <div className="flex  sm:flex-col  sm:space-x-2 truncate">
+                <div className="flex  sm:flex-row  sm:space-x-2 truncate">
                   <Link
                     href={`/profile/${post.author.username}`}
                     className="font-semibold truncate"
